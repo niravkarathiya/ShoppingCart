@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar {
+    background-color: #f4eec2;
+    color: #416a59;
+    font-weight: 600;
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+span {
+    cursor: pointer;
+}
