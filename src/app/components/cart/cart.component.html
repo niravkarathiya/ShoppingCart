@@ -1,31 +1,33 @@
 <div class="container">
     <div class="checkout">
-        <div class="item">
+        <div class="item" *ngFor="let item of cartItems;">
             <div class="item-img">
-                <img src="https://5.imimg.com/data5/SELLER/Default/2022/9/UH/NJ/EN/25396958/latest-kurta-designs-for-men-indian-kurta-looks-better-than-a-thousand-business-suits--1000x1000.jpeg"
-                    width="100px" height="100px">
+                <img src="{{item.image}}" width="100px" height="100px">
             </div>
             <div class="item-details">
                 <div>
-                    <span class="name">Kurta</span>
+                    <span class="name">{{item.title}}</span><br>
+                    <span class="description">{{item.description}}</span>
                 </div>
                 <div>
-                    <span class="price">{{799 | currency : 'INR'}}</span>
+                    <span class="price">{{item.price | currency : 'INR'}}</span>
                 </div>
                 <div class="count">
-                    <span class="flex-align-center">
-                        <mat-icon>remove</mat-icon> <span>{{1}}</span> <mat-icon>add</mat-icon>
+                    <span class="flex-center-between w-20">
+                        <mat-icon (click)="removeItem(item)">remove</mat-icon> <span
+                            class="quantity">{{item.quantity}}</span> <mat-icon
+                            (click)="updateItemCart(item)">add</mat-icon>
                     </span>
                     <span class="remove-button">
-                        <mat-icon color="warn">delete</mat-icon>
+                        <mat-icon color="warn" (click)="deleteItem(item)">delete</mat-icon>
                     </span>
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="total">
-            <span>Total</span>
-            <span class="amount">{{799 | currency : 'INR'}}</span>
+        <div class="data-not-found" *ngIf="!cartItems?.length">
+            <img src="../../../assets/cart_empty.png" alt="Empty Cart">
+            <button class="back-to-shopping-btn" [routerLink]="['/']">Continue To Shopping</button>
         </div>
     </div>
+
 </div>
