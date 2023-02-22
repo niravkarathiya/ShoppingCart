@@ -1,8 +1,34 @@
+@mixin item-center($display, $align-item, $justify-content) {
+    display: $display;
+    align-items: $align-item;
+    justify-content: $justify-content;
+}
+
+@mixin counter-icon($float, $p-b) {
+    float: $float;
+    padding-bottom: $p-b;
+}
+
+@mixin icon-style {
+    color: #f4eec2;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #416a59;
+}
+
 .container {
+    @include item-center(flex, none, space-evenly);
     width: 100%;
-    display: flex;
-    justify-content: space-evenly;
     flex-flow: wrap;
+
+    .example-card:hover {
+        transform: translateY(-5px) scale(1.005) translateZ(0);
+        box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+            0 24px 46px var(--box-shadow-color);
+    }
 
     .example-card {
         width: 300px;
@@ -29,12 +55,35 @@
         }
 
         .price-rating {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include item-center(flex, center, space-between);
 
             .price {
                 font-style: bold;
+            }
+        }
+
+        .quantity {
+            width: 100%;
+            @include item-center(flex, center, space-evenly);
+            text-align: center;
+            padding: 10px;
+
+            .plus-icon {
+                @include counter-icon(right, 10px);
+                @include icon-style();
+
+            }
+
+            .minus-icon {
+                @include counter-icon(left, 12px);
+                @include icon-style();
+            }
+
+            p {
+                margin: 0 !important;
+                font-size: 24px;
+                font-weight: 700;
+                color: #416a59;
             }
         }
 

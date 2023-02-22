@@ -1,6 +1,11 @@
+@mixin item-center($display, $align-item, $justify-content) {
+    display: $display;
+    align-items: $align-item;
+    justify-content: $justify-content;
+}
+
 .container {
-    justify-content: center;
-    display: flex;
+    @include item-center(flex, none, center);
 
     .checkout {
         margin-top: 50px;
@@ -11,7 +16,7 @@
     }
 
     .item {
-        display: flex;
+        @include item-center(flex, none, none);
         margin: 10px;
         padding: 30px;
 
@@ -22,7 +27,7 @@
         }
 
         .item-details {
-            display: block;
+            @include item-center(block, none, none);
             width: 80%;
             margin-left: 20px;
 
@@ -30,7 +35,11 @@
                 font-size: large;
                 font-weight: 500;
                 color: #416a59;
-                ;
+            }
+
+            .description {
+                font-size: small;
+                color: #416a59;
             }
 
             .price {
@@ -40,14 +49,28 @@
 
             .count {
                 color: #39395f;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                @include item-center(flex, center, space-between);
                 cursor: pointer;
 
-                mat-icon {
-                    color: #f4eec2;
-                    background-color: #416a59;
+                .flex-center-between {
+                    @include item-center(flex, center, space-between);
+
+                    mat-icon {
+                        color: #f4eec2;
+                        background-color: #416a59;
+                        min-width: 20px;
+                        @include item-center(flex, center, center);
+                    }
+                }
+
+                .w-20 {
+                    width: 20%;
+                }
+
+                .quantity {
+                    font-weight: 700;
+                    color: #416a59;
+                    font-size: 16px;
                 }
             }
 
@@ -73,9 +96,25 @@
             float: right;
         }
     }
-}
 
-.flex-align-center {
-    display: flex;
-    align-items: center;
+    .data-not-found {
+        @include item-center(flex, center, center);
+        flex-direction: column;
+        padding: 10px;
+
+        img {
+            width: 50%;
+        }
+
+        .back-to-shopping-btn {
+            width: 50%;
+            height: 40px;
+            color: #56c16d;
+            background-color: #e8f6eb;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    }
 }

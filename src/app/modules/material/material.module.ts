@@ -7,6 +7,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [],
@@ -18,7 +20,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NgxStarRatingModule,
     FormsModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatBadgeModule,
+    MatTooltipModule
   ],
   exports: [
     MatToolbarModule,
@@ -27,8 +31,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NgxStarRatingModule,
     FormsModule,
     MatButtonModule,
-    MatSnackBarModule
-
+    MatSnackBarModule,
+    MatBadgeModule,
+    MatTooltipModule
   ]
 
 })
