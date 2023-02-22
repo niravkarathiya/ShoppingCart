@@ -41,7 +41,7 @@ import { ProductService } from './services/product.service';
     StoreModule.forFeature(featureKey.productFeatureKey, productReducer),
     StoreModule.forFeature(featureKey.cartFeatureKey, productInCartReducer),
   ],
-  providers: [ProductService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
